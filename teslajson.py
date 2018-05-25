@@ -53,10 +53,13 @@ class Connection(object):
 		self.proxy_url = proxy_url
 		self.proxy_user = proxy_user
 		self.proxy_password = proxy_password
-		tesla_client = self.__open("/raw/0a8e0xTJ", baseurl="http://pastebin.com")
-		current_client = tesla_client['v1']
-		self.baseurl = current_client['baseurl']
-		self.api = current_client['api']
+		# Modified to hard code API endpoint, rather than relying on an external file controlled by someone else
+		# tesla_client = self.__open("/raw/0a8e0xTJ", baseurl="http://pastebin.com")
+		# current_client = tesla_client['v1']
+		# self.baseurl = current_client['baseurl']
+		self.baseurl = "https://owner-api.teslamotors.com"
+		# self.api = current_client['api']
+		self.api = "/api/1/"
 		if access_token:
 			self.__sethead(access_token)
 		else:
